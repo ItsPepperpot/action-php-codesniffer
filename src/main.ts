@@ -28,7 +28,7 @@ async function run(): Promise<void> {
       runOnCompleteFiles(
         scope === 'files' ? [...files.added, ...files.modified] : files.added
       );
-    else if (files.modified.length && scope === 'blame') {
+    if (files.modified.length && scope === 'blame') {
       // run on blame
       await runOnBlame(files.modified);
     }
